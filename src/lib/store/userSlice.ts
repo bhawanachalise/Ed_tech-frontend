@@ -1,6 +1,13 @@
 import {createSlice} from"@reduxjs/toolkit";
-import { SocketAddress } from "net";
-createSlice({
+interface  IUserInitialState{
+    name:string |null,
+    address:string |null
+}
+const userIntialState:IUserInitialState={
+    name:null,
+    address:null
+}
+const userSlice= createSlice({
     name:"userSlice",
     initialState :{
         name:null,
@@ -8,13 +15,16 @@ createSlice({
     },
     reducers:{
         setName(state,action){
-            state.name="bhawana"
+          //state.name="bhawana"
 
         },
         setAddress(state,action){
-            state.address="bharatpur"
+           // state.address="bharatpur"
 
         }
     }
 
 })
+const {setName,setAddress}=userSlice.actions
+export default userSlice.reducer
+export  {setName,setAddress}

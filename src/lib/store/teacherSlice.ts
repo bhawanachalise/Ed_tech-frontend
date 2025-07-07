@@ -14,10 +14,13 @@ const teacherSlice=createSlice({
             state.teacherPassword="hey"
         }
 
-    }
+    },
 })
 const{setTeacherName,setTeacherPassword}=teacherSlice.actions
-setTeacherName()
+
+export default teacherSlice.reducer
+export{setTeacherName,setTeacherPassword}
+
 /*const setTeacherName =teachersSlice.actions.setTeacherName
 const setTeacherPassword = teacherSlice.actions.setTeacherPassword
 const{} = teachersSlice.action*/
@@ -29,4 +32,4 @@ setTeacherPassword:{}{}
 /*
 FLOW
 reducers -->action
-reducer-->communication-->action
+reducer-->communication-->action*/
