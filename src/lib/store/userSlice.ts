@@ -1,25 +1,21 @@
-import {createSlice} from"@reduxjs/toolkit";
-interface  IUserInitialState{
-    name:string |null,
-    address:string |null
-}
+import {createSlice, PayloadAction} from"@reduxjs/toolkit";
+import { IUserInitialState } from "./type";
 const userIntialState:IUserInitialState={
     name:null,
     address:null
 }
 const userSlice= createSlice({
     name:"userSlice",
-    initialState :{
-        name:null,
-        address:null
-    },
+    initialState : userIntialState,
+        
+   
     reducers:{
-        setName(state,action){
-          //state.name="bhawana"
+        setName(state:IUserInitialState,action:PayloadAction<string>){
+          state.name=action.payload
 
         },
-        setAddress(state,action){
-           // state.address="bharatpur"
+        setAddress(state:IUserInitialState,action:PayloadAction<string>){
+            state.address=action.payload
 
         }
     }
@@ -28,3 +24,6 @@ const userSlice= createSlice({
 const {setName,setAddress}=userSlice.actions
 export default userSlice.reducer
 export  {setName,setAddress}
+dispatch(setName("bhawana"))
+dispatch(setAddress("bharatpur"))
+//dispatch function maa rakhana parxa

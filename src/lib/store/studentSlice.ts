@@ -1,20 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
-const initialStudentData={
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IInitialStudentData } from "./type";
+const initialStudentData:IInitialStudentData={
     data:""
+
 }
 const studentSlice=createSlice ({
     name:"studentSlice",
-    initialState:initialStudentData,
+   initialState:initialStudentData,
+    
 
     
     
     reducers:{
-        setData(state,action){
-            state.data = 'bhawana'
+        setData(state :IInitialStudentData ,action:PayloadAction<string>){
+            state.data = action.payload
         },
     }
 
 })
 const {setData} = studentSlice.actions
+dispatch(setData("bhawana"))
 export default studentSlice.reducer
 export{setData}
